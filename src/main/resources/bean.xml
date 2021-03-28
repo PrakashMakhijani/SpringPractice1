@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+  <bean name="guest" class="my.practice.demo.domain.Guest">
+      <property name="id" value="123"/>
+      <property name="firstName" value="Prakash"/>
+      <property name="lastName" value="Makhijani"/>
+      <property name="phoneNumber" value="987654321"/>
+      <property name="address" ref = "address"/>
+  </bean>
+
+    <bean name = "address" class="my.practice.demo.domain.Address">
+        <property name="id" value ="#{new java.util.Random().nextInt(1000000)}"/>
+        <property name="postalCode" value="M2R3B7"/>
+        <property name="addresdType" value="HOME"/>
+        <property name="city" value="North York"/>
+    </bean>
+
+    <bean name="GuestBookService" class="my.practice.demo.Service.GuestBookService"/>
+
+</beans>
